@@ -5,7 +5,7 @@
       <div class="container">
         <div class="carousel-caption text-left">
           <h1>{{ product.name }}</h1>
-          <p>{{ product.desc }}</p>
+          <p>{{ product.description }}</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">$ {{ product.price }}</a></p>
         </div>
       </div>
@@ -22,14 +22,27 @@
 
   <!-- Three columns of text below the carousel -->
   <div class="row">
-    <div class="col-lg-4" *ngFor="let head of product.headings">
+    <div class="col-lg-4">
       <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <h2>{{ head.heading }}</h2>
-      <p>{{ head.headingText }}</p>
+      <h2>{{ product.heading1 }}</h2>
+      <p>{{ product.headText1 }}</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+      <h2>{{ product.heading2 }}</h2>
+      <p>{{ product.headText2 }}</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+      <h2>{{ product.heading3 }}</h2>
+      <p>{{ product.headText3 }}</p>
       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
   </div><!-- /.row -->
-
 
   <!-- START THE FEATURETTES -->
 
