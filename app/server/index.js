@@ -1,7 +1,4 @@
 const express = require('express');
-// const mysql = require('mysql2');
-// const config = require('./config/dev');
-// const product = require('./models/product');
 const productRoutes = require('./routes/products');
 
 const app = express();
