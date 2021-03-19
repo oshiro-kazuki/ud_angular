@@ -10,8 +10,7 @@ import { ProductService } from './shared/product.service';
 
 const routes: Routes = [
   { 
-    path: 'products',
-    component: ProductComponent,
+    path: 'products', component: ProductComponent,
     children: [
       { path: '', component: ProductListComponent },
       { path: ':productId', component: ProductDetailComponent }
