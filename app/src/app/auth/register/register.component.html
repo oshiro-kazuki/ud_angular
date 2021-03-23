@@ -17,7 +17,27 @@
                                   <i class="fa fa-twitter"></i>
                               </a>
                           </div>
-                          <form class="register-form">
+
+                          <form class="register-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+                              <label>お名前</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-single-02"></i>
+                                  </span>
+                                </div>
+                                  <input
+                                    ngModel
+                                    name="username"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Name"
+                                    (focus)="focus=true"
+                                    (blur)="focus=false"
+                                    required
+                                  >
+                              </div>
+
                               <label>メールアドレス</label>
                               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                 <div class="input-group-prepend">
@@ -25,8 +45,16 @@
                                       <i class="nc-icon nc-email-85"></i>
                                   </span>
                                 </div>
-
-                                  <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                  <input
+                                    ngModel
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Email"
+                                    (focus)="focus=true"
+                                    (blur)="focus=false"
+                                    required
+                                  >
                               </div>
 
                               <label>パスワード</label>
@@ -36,10 +64,53 @@
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                  <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input
+                                    ngModel
+                                    name="password"
+                                    type="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    (focus)="focus1=true"
+                                    (blur)="focus1=false"
+                                    maxlength="10"
+                                    minlength="6"
+                                    required
+                                  >
                               </div>
-                              <button class="btn btn-danger btn-block btn-round">新規登録</button>
+
+                              <label>パスワード(確認用)</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                </div>
+                                  <input
+                                    ngModel
+                                    name="confirmPassword"
+                                    type="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    (focus)="focus1=true"
+                                    (blur)="focus1=false"
+                                    maxlength="10"
+                                    minlength="6"                          
+                                    required
+                                  >
+                              </div>
+                              
+                              <button
+                                class="btn btn-danger btn-block btn-round"
+                                type="submit"
+                                [disabled]="!registerForm.valid"
+                              >新規登録</button>
                           </form>
+                          
+                          <br>
+                          <div *ngIf="errors && errors.length>0" class="alert alert-danger">
+                            <p *ngFor="let error of errors">{{error.message}}</p>
+                          </div>
+
                           <div class="forgot">
                               <a [routerLink]="['/login']" class="btn btn-link btn-danger">ログインはこちら</a>
                           </div>

@@ -1,10 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const productRoutes = require('./routes/products');
+const usersRoutes = require('./routes/users');
 const path = require('path');
 
 const app = express();
+app.use(bodyParser.json())
 
 app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/users', usersRoutes);
 
 // if(process.env.NODE_ENV === 'production') {
 //   const appPath = path.join( __dirname, '..', 'dist', 'app');
