@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './shared/auth.servie';
+import { AuthGuard } from './shared/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NoopInterceptor } from './shared/token.intercepter';
 
 
 const routes: Routes = [
@@ -24,7 +27,12 @@ const routes: Routes = [
     FormsModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS,
+      useClass: NoopInterceptor,
+      multi: true 
+    },
   ],
   bootstrap: []
 })
